@@ -528,7 +528,7 @@ def  compute_flow_base(Image1,Image2,max_iter,max_linear_iter,u,v,alpha,lmbda,S,
             v=vhat
         if i!=max_iter-1:
 
-            lambda2_tmp=Lambdas[i+1]
+            lambda2_tmp=Lambdas[i+1] # Increment Lambda2
 
         
     return [u,v,uhat,vhat]

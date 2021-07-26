@@ -54,17 +54,3 @@ def denoise_LO (un,vn, median_filter_size, lambda23, niters):
         vo=np.reshape(                      np.median( np.vstack(  (v2,tmpv))                     ,0), (un.shape[0],un.shape[1]),'F'      )
 
     return [uo,vo]
-
-u=np.random.rand(3,4)
-v=np.random.rand(3,4)
-
-'''un=np.array([[1 ,2 ,3 ,4 ], [5 ,6 ,7 ,8 ] ,[9 ,10 ,11 ,12 ],[13, 14,15,16]])
-un=np.array([[1 ,2 ,3 ], [4 ,5 ,6]])
-un=np.array([[0.8147  ,   0.1270   ,  0.6324], [0.9058   ,  0.9134   , 0.0975]])
-
-    
-median_filter_size=3 #2
-lambda23=100
-niters=10
-u0=denoise_LO (un, median_filter_size, lambda23, niters)
-print(u0)'''

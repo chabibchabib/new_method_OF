@@ -50,6 +50,7 @@ def compute_image_pyram(Im1,Im2,ratio,N_levels,gaussian_sigma):
 
 
 def resample_flow_unequal(u,v,sz,ordre_inter):
+    '''Interpolate flow field'''
     osz=u.shape
     ratioU=sz[0]/osz[0]
     ratioV=sz[1]/osz[1]
@@ -58,6 +59,8 @@ def resample_flow_unequal(u,v,sz,ordre_inter):
     return u,v
 ############################################################
 def compute_flow(Im1,Im2,u,v,iter_gnc,gnc_pyram_levels,gnc_factor,gnc_spacing, pyram_levels,factor,spacing,ordre_inter, alpha,lmbda, size_median_filter,h,coef,S,max_linear_iter,max_iter,lambda2,lambda3,eps,a,sigma_qua):
+    ''' Compute flow field'''
+    
     param1=1/8; param2=100; param3=0.95; param4=False;
     #param1=1/10; param2=100; param3=0.5; param4=False 
     Im1,Imm1=ri.decompo_texture(Im1, param1, param2, param3, param4)
@@ -81,6 +84,7 @@ def compute_flow(Im1,Im2,u,v,iter_gnc,gnc_pyram_levels,gnc_factor,gnc_spacing, p
         else:
             py_lev=gnc_pyram_levels
         print('pylev',py_lev)
+        #Iterate through all pyramid levels starting at the top
         for lev in range(py_lev-1,-1,-1):
             if i==0:
                 Image1=P1[lev]; Image2=P2[lev]
